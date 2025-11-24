@@ -1,0 +1,212 @@
+:root {
+    --morado-principal: #8B5FBF; --morado-claro: #9D7AC6; --morado-oscuro: #6B46A3;
+    --celeste: #6CB2EB; --celeste-claro: #90CDF4; --rojo: #E53E3E; --rosa: #D53F8C;
+    --fondo-suave: #F7FAFC; --texto-oscuro: #2D3748; --texto-gris: #718096;
+    --blanco: #FFFFFF; --borde: #E2E8F0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--fondo-suave) 0%, var(--celeste-claro) 100%);
+    color: var(--texto-oscuro); min-height: 100vh; line-height: 1.6;
+}
+
+.page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; flex: 1; }
+
+/* Header y menú */
+.menu-header {
+    text-align: center; margin-bottom: 40px; padding: 30px;
+    background: linear-gradient(135deg, #8B5FBF 0%, #DDA0DD 100%);
+    color: white; border-radius: 10px;
+}
+.menu-header h1 { margin-bottom: 10px; font-size: 2.2em; color: white; }
+.menu-header p { font-size: 1.1em; margin-bottom: 20px; color: white; }
+.students { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.students span { background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-weight: bold; color: white; }
+
+/* Grid de problemas */
+.problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+.problem-card {
+    background: white; padding: 20px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0; transition: all 0.3s ease; text-align: center;
+}
+.problem-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(139,95,191,0.2); border-color: #8B5FBF; }
+.problem-card h3 { color: #8B5FBF; margin-bottom: 10px; font-size: 1.2em; }
+.problem-card p { color: #666; margin-bottom: 15px; line-height: 1.4; font-size: 0.95em; }
+
+/* Componentes base */
+.btn {
+    display: inline-block; background: #8B5FBF; color: white; padding: 10px 20px; border-radius: 5px;
+    text-decoration: none; font-weight: bold; transition: background 0.3s ease; border: none; cursor: pointer;
+    width: 100%; box-sizing: border-box;
+}
+.btn:hover { background: #7A4FAA; }
+
+.footer { background: var(--morado-oscuro); color: var(--blanco); text-align: center; padding: 25px; margin-top: auto; }
+.footer p { margin: 5px 0; }
+
+.nav-link {
+    display: inline-block; background: var(--celeste); color: var(--blanco); padding: 10px 20px;
+    border-radius: 20px; text-decoration: none; margin: 10px 0; transition: all 0.3s ease;
+}
+.nav-link:hover { background: var(--celeste-claro); transform: scale(1.05); }
+
+.form-container { background: var(--blanco); padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(139,95,191,0.1); margin-bottom: 30px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; color: var(--texto-oscuro); font-weight: 600; }
+.form-group input, .form-group select { width: 100%; padding: 12px; border: 2px solid var(--borde); border-radius: 8px; font-size: 16px; transition: border-color 0.3s ease; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--morado-principal); }
+
+.resultados { background: var(--blanco); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(139,95,191,0.1); margin-top: 20px; }
+.resultados h3 { color: var(--morado-principal); margin-bottom: 15px; }
+
+.chart-container { background: var(--blanco); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(139,95,191,0.1); margin: 20px 0; }
+
+/* Problemas específicos */
+.problem-header { text-align: center; margin-bottom: 30px; }
+.problem-header h1 { color: var(--morado-principal); }
+.error-message { background: var(--rojo); color: white; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center; }
+
+/* Grids y cards comunes */
+.stats-grid, .multiples-grid, .final-result, .process-steps, .comp-grid, .notes-grid, .powers-grid, .seasons-grid, .areas-grid, .categories-grid {
+    display: grid; gap: 15px; margin-top: 15px;
+}
+.stats-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.multiples-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin: 20px 0; }
+.final-result { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 25px 0; }
+.process-steps { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.comp-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.notes-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.powers-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: 20px 0; }
+.seasons-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.areas-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.categories-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+/* Cards con gradientes */
+.stat-card, .multiple-card, .result-card, .summary-card, .category-card {
+    color: white; padding: 20px; border-radius: 10px; text-align: center;
+}
+.stat-card { background: linear-gradient(135deg, var(--celeste) 0%, var(--morado-claro) 100%); }
+.multiple-card { background: linear-gradient(135deg, var(--rosa) 0%, var(--morado-principal) 100%); font-weight: bold; font-size: 1.1em; }
+.result-card, .summary-card { background: linear-gradient(135deg, var(--morado-principal) 0%, var(--rosa) 100%); padding: 25px; border-radius: 12px; }
+
+/* Específicos de problemas */
+.result-number { font-size: 2em; font-weight: bold; margin: 10px 0; }
+.stat-value { font-size: 2.5em; font-weight: bold; margin: 10px 0; }
+.stat-value.good { color: #38A169; }
+.stat-value.bad { color: #E53E3E; }
+
+.process { background: var(--fondo-suave); padding: 20px; border-radius: 10px; margin: 25px 0; }
+.process-step { background: white; padding: 12px; border-radius: 8px; border-left: 4px solid var(--celeste); display: flex; justify-content: space-between; font-size: 0.9em; }
+.step-number { color: var(--morado-principal); font-weight: bold; }
+.step-result { color: var(--texto-gris); }
+
+.summary { background: var(--fondo-suave); padding: 15px; border-radius: 8px; border-left: 4px solid var(--celeste); margin-top: 20px; }
+.summary p { margin: 0; color: var(--texto-oscuro); font-size: 1.1em; }
+
+/* Problema 4 */
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 25px; }
+.stat-box { padding: 25px; border-radius: 12px; color: white; text-align: center; }
+.stat-box.even { background: linear-gradient(135deg, var(--celeste) 0%, var(--morado-claro) 100%); }
+.stat-box.odd { background: linear-gradient(135deg, var(--rosa) 0%, var(--rojo) 100%); }
+.stat-box h4 { margin-bottom: 15px; font-size: 1.3em; }
+.stat-count, .stat-sum, .stat-avg { margin: 8px 0; font-size: 1.1em; }
+
+.comparison { background: var(--fondo-suave); padding: 20px; border-radius: 10px; margin: 20px 0; }
+.comp-item { background: white; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--morado-principal); }
+
+.numbers-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0; }
+.numbers-section { background: white; padding: 20px; border-radius: 10px; border: 2px solid var(--borde); }
+.numbers-section h5 { color: var(--morado-principal); margin-bottom: 15px; text-align: center; }
+.numbers-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.number-tag { padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+.number-tag.even { background: var(--celeste-claro); color: var(--morado-oscuro); }
+.number-tag.odd { background: var(--rosa); color: white; }
+.more-numbers { color: var(--texto-gris); font-style: italic; align-self: center; }
+
+/* Problema 5 */
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.category-card.niño { background: linear-gradient(135deg, #6CB2EB 0%, #4A90E2 100%); }
+.category-card.adolescente { background: linear-gradient(135deg, #E53E3E 0%, #C53030 100%); }
+.category-card.adulto { background: linear-gradient(135deg, #38A169 0%, #2F855A 100%); }
+.category-card.adulto_mayor { background: linear-gradient(135deg, #D69E2E 0%, #B7791F 100%); }
+.category-count { font-size: 1.5em; font-weight: bold; margin: 8px 0; }
+
+/* Problema 6 */
+.budget-summary { text-align: center; margin: 25px 0; }
+.total-budget { background: linear-gradient(135deg, var(--morado-principal) 0%, var(--rosa) 100%); color: white; padding: 30px; border-radius: 12px; display: inline-block; min-width: 300px; }
+.budget-amount { font-size: 2em; font-weight: bold; margin: 0; }
+.area-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(139,95,191,0.1); }
+.area-details { display: flex; justify-content: space-between; align-items: center; }
+.area-percentage { font-size: 1.5em; font-weight: bold; color: var(--morado-principal); margin: 0; }
+.area-amount { font-size: 1.2em; font-weight: bold; color: var(--texto-oscuro); margin: 0; }
+
+.budget-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(139,95,191,0.1); }
+.budget-table th { background: var(--morado-principal); color: white; padding: 15px; text-align: left; font-weight: 600; }
+.budget-table td { padding: 15px; border-bottom: 1px solid var(--borde); }
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table .total-row { background: var(--fondo-suave); font-weight: bold; }
+.budget-table .total-row td { border-top: 2px solid var(--morado-principal); }
+
+.proportion-bar { background: var(--borde); border-radius: 10px; height: 25px; position: relative; overflow: hidden; }
+.proportion-fill { height: 100%; border-radius: 10px; transition: width 0.5s ease; }
+.proportion-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-weight: bold; font-size: 0.8em; color: var(--texto-oscuro); }
+
+/* Problema 7 */
+.note-item { padding: 15px; border-radius: 8px; text-align: center; }
+.note-item.approved { background: linear-gradient(135deg, #38A169 0%, #2F855A 100%); color: white; }
+.note-item.failed { background: linear-gradient(135deg, #E53E3E 0%, #C53030 100%); color: white; }
+
+/* Problema 8 */
+.season-card { background: var(--blanco); padding: 0; border-radius: 15px; box-shadow: 0 10px 25px rgba(139,95,191,0.3); border: 4px solid transparent; max-width: 600px; margin: 0 auto; position: relative; min-height: 400px; overflow: hidden; }
+.season-info-overlay { position: absolute; top: 20px; left: 20px; right: 20px; background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border-left: 5px solid; }
+.season-card.verano, .season-info-card.verano { border-color: #E53E3E; background-color: #FED7D7; }
+.season-card.otoño, .season-info-card.otoño { border-color: #D69E2E; background-color: #FEEBC8; }
+.season-card.invierno, .season-info-card.invierno { border-color: #6CB2EB; background-color: #BEE3F8; }
+.season-card.primavera, .season-info-card.primavera { border-color: #68D391; background-color: #C6F6D5; }
+.season-card.verano .season-info-overlay { border-left-color: #E53E3E; }
+.season-card.otoño .season-info-overlay { border-left-color: #D69E2E; }
+.season-card.invierno .season-info-overlay { border-left-color: #6CB2EB; }
+.season-card.primavera .season-info-overlay { border-left-color: #68D391; }
+
+.season-info-card { padding: 0; border-radius: 10px; transition: all 0.3s ease; border: 3px solid transparent; min-height: 140px; position: relative; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.season-mini-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); padding: 15px; border-top: 4px solid; }
+.season-info-card.verano .season-mini-overlay { border-top-color: #E53E3E; }
+.season-info-card.otoño .season-mini-overlay { border-top-color: #D69E2E; }
+.season-info-card.invierno .season-mini-overlay { border-top-color: #6CB2EB; }
+.season-info-card.primavera .season-mini-overlay { border-top-color: #68D391; }
+.season-info-card.current { transform: scale(1.05); box-shadow: 0 8px 25px rgba(139,95,191,0.4); }
+
+/* Problema 9 */
+.power-card { background: var(--blanco); padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(139,95,191,0.1); border-left: 4px solid var(--morado-principal); transition: transform 0.2s ease; }
+.power-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(139,95,191,0.15); }
+.power-formula { font-size: 1.1em; font-weight: bold; text-align: center; color: var(--texto-oscuro); }
+
+/* Problema 10 */
+.input-group { margin-bottom: 20px; text-align: center; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+.input-group input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 80px; text-align: center; }
+.dia-card { background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px; }
+.dia-card h4 { margin-bottom: 10px; color: var(--morado-principal); }
+.vendedor-dia { margin-bottom: 10px; padding: 8px; background: #f9f9f9; border-radius: 5px; }
+.vendedor-dia label { display: block; margin-bottom: 5px; font-weight: bold; }
+.notas-selector { width: 100%; padding: 5px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 3px; }
+.nota-fields { display: flex; gap: 5px; margin-bottom: 5px; }
+.nota-fields select, .nota-fields input { flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; }
+.ventas-tabla { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.ventas-tabla th, .ventas-tabla td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+.ventas-tabla th { background-color: var(--morado-principal); color: white; }
+.total, .gran-total { background-color: #e8f5e8; font-weight: bold; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .problems-grid, .stats-grid, .final-result, .seasons-grid { grid-template-columns: 1fr; }
+    .students { flex-direction: column; gap: 10px; }
+    .menu-header { padding: 20px; }
+    .menu-header h1 { font-size: 1.8em; }
+    .nota-fields { flex-direction: column; }
+    .chart-row { grid-template-columns: 1fr; }
+}
